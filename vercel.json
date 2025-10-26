@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "backend/app.py",
@@ -10,5 +11,9 @@
       "src": "/(.*)",
       "dest": "backend/app.py"
     }
-  ]
+  ],
+  "env": {
+    "PYTHON_VERSION": "3.12",
+    "PORT": "8000"
+  }
 }
