@@ -1,20 +1,11 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "app.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb" }
+  "functions": {
+    "api/index.py": {
+      "runtime": "python3.12"
     }
-  ],
+  },
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app.py"
-    }
-  ],
-  "env": {
-    "PYTHON_VERSION": "3.12",
-    "PIP_DISABLE_PIP_VERSION_CHECK": "1"
-  }
+    { "src": "/(.*)", "dest": "api/index.py" }
+  ]
 }
