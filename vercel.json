@@ -2,19 +2,15 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/app.py",
+      "src": "app.py",
       "use": "@vercel/python",
       "config": { "runtime": "python3.12" }
     }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/backend/app.py"
-    }
+    { "src": "/(.*)", "dest": "/app.py" }
   ],
   "env": {
-    "PYTHON_VERSION": "3.12",
-    "PORT": "8000"
+    "PYTHON_VERSION": "3.12"
   }
 }
