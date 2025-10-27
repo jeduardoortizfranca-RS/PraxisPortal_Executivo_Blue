@@ -2,19 +2,12 @@
   "version": 2,
   "functions": {
     "api/**/*.py": {
-      "runtime": "python3.11",
       "maxDuration": 30,
       "memory": 1024
     }
   },
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "api/index.py"
-    }
-  ],
-  "env": {
-    "PYTHON_VERSION": "3.11",
-    "PIP_DISABLE_PIP_VERSION_CHECK": "1"
-  }
+    { "src": "/(.*)", "dest": "api/index.py" }
+  ]
 }
+
