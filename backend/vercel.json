@@ -1,20 +1,17 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "backend/app.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb" }
+  "functions": {
+    "api/**/*.py": {
+      "runtime": "python3.11",
+      "maxDuration": 30,
+      "memory": 1024
     }
-  ],
+  },
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "backend/app.py"
-    }
+    { "src": "/(.*)", "dest": "api/index.py" }
   ],
   "env": {
-    "PYTHON_VERSION": "3.12",
+    "PYTHON_VERSION": "3.11",
     "PIP_DISABLE_PIP_VERSION_CHECK": "1"
   }
 }
