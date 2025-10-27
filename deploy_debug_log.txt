@@ -1,0 +1,7 @@
+====================================================== 
+    🚀 Deploy Automatizado - PraxisPortal V9.3 (DEBUG) 
+====================================================== 
+Iniciando em: 26/10/2025 23:24:00,50 
+ 
+📁 Diretorio atual: C:\PraxisDemo\PraxisDemo_Local_Financeiro\PraxisDemo\PraxisPortal_Executivo_Blue 
+Saved working directory and index state On main: auto-stash-26/10/2025_23:24:00,60

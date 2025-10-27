@@ -1,0 +1,6 @@
+====================================================== 
+[Inicio] 27/10/2025  0:34:23,58 
+📁 Diretório atual: C:\PraxisDemo\PraxisDemo_Local_Financeiro\PraxisDemo\PraxisPortal_Executivo_Blue 
+✅ Vercel CLI detectado. 
+Vercel CLI 48.6.0
+48.6.0
