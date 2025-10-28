@@ -1,15 +1,13 @@
 @echo off
 SETLOCAL
 
-REM ================================================
-REM   FastAPI Deploy — Praxis Portal Executivo Blue
-REM ================================================
-
 echo.
-echo ✅ Iniciando deploy FastAPI na Vercel...
+echo ================================================
+echo   FastAPI Deploy — Praxis Portal Executivo Blue
+echo ================================================
 echo.
 
-REM 🔥 Forçar execução no caminho onde o BAT está
+REM 🔥 Forçar execução no diretório do BAT
 cd /d "%~dp0"
 echo 📁 Diretório atual:
 cd
@@ -51,7 +49,6 @@ REM 4) Criar api/index.py
 echo.
 echo [4/10] — Criando api/index.py...
 IF NOT EXIST api mkdir api
-
 (
 echo from main import app
 ) > api\index.py
@@ -85,13 +82,12 @@ echo.
 echo [8/10] — Git push...
 git push
 
-REM 9) Deploy
+REM ✅ 9) Deploy
 echo.
 echo [9/10] — Deploy Vercel...
-vercel --prod --force
+vercel deploy --prod --force --cwd "%~dp0"
 
 echo.
 echo ✅ Deploy finalizado!
-echo Teste em: https://praxis-portal-executivo-blue.vercel.app/
 echo.
 pause
