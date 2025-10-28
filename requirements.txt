@@ -1,8 +1,2 @@
 fastapi
 uvicorn
-sqlalchemy
-python-multipart
-python-jose
-passlib[bcrypt]
-pydantic
-python-dotenv
