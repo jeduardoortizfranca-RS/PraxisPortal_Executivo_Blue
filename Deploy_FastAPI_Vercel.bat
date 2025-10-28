@@ -1,30 +1,22 @@
 @echo off
 SETLOCAL
 
-echo.
 echo ================================================
 echo   FastAPI Deploy — Praxis Portal Executivo Blue
 echo ================================================
+
+REM 🔥 Fix path (remove trailing quotes)
+for %%I in ("%~dp0.") do set PROJECT_DIR=%%~fI
+echo ✅ Diretório alvo: "%PROJECT_DIR%"
+cd /d "%PROJECT_DIR%"
+
 echo.
 
-REM 🔥 Forçar execução no diretório do BAT
-cd /d "%~dp0"
-echo 📁 Diretório atual:
-cd
-echo.
+echo [1/8] Verificando Python
+python --version || (echo ❌ Python não encontrado! & pause & exit /b)
 
-REM 1) Validar Python
-echo [1/10] — Validando Python...
-python --version
-IF %ERRORLEVEL% NEQ 0 (
-    echo ❌ Python não encontrado!
-    pause
-    exit /b
-)
-
-REM 2) Criar main.py
 echo.
-echo [2/10] — Criando main.py...
+echo [2/8] Criando main.py...
 (
 echo from fastapi import FastAPI
 echo.
@@ -34,29 +26,23 @@ echo @app.get("/")
 echo async def root():
 echo^    return {"status": "✅ API FastAPI ativa na Vercel"}
 ) > main.py
-echo ✅ main.py criado/atualizado
 
-REM 3) Criar requirements.txt
 echo.
-echo [3/10] — Criando requirements.txt...
+echo [3/8] Criando requirements.txt...
 (
 echo fastapi
 echo uvicorn
 ) > requirements.txt
-echo ✅ requirements.txt criado/atualizado
 
-REM 4) Criar api/index.py
 echo.
-echo [4/10] — Criando api/index.py...
-IF NOT EXIST api mkdir api
+echo [4/8] Criando api/index.py...
+if not exist api mkdir api
 (
 echo from main import app
 ) > api\index.py
-echo ✅ api/index.py criado/atualizado
 
-REM 5) Criar vercel.json
 echo.
-echo [5/10] — Criando vercel.json...
+echo [5/8] Criando vercel.json...
 (
 echo {
 echo   "version": 2,
@@ -65,29 +51,23 @@ echo     { "src": "/(.*)", "dest": "/api/index.py" }
 echo   ]
 echo }
 ) > vercel.json
-echo ✅ vercel.json criado/atualizado
 
-REM 6) Git add
 echo.
-echo [6/10] — Git add...
+echo [6/8] Git add...
 git add .
 
-REM 7) Git commit
 echo.
-echo [7/10] — Git commit...
-git commit -m "auto: fastapi minimal structure for vercel"
+echo [7/8] Git commit...
+git commit -m "auto: safe deploy structure" || echo (nada para commitar)
 
-REM 8) Git push
 echo.
-echo [8/10] — Git push...
+echo [8/8] Git push...
 git push
 
-REM ✅ 9) Deploy
 echo.
-echo [9/10] — Deploy Vercel...
-vercel deploy --prod --force --cwd "%~dp0"
+echo 🚀 Deploy Vercel...
+vercel deploy --prod --force --cwd "%PROJECT_DIR%"
 
 echo.
-echo ✅ Deploy finalizado!
-echo.
+echo ✅ FINALIZADO
 pause
