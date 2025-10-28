@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from backend.database import Base, engine
 from backend.models import *  # noqa
 from backend.routes import rotas_base, rotas_financeiro
+import uvicorn
 
 # ------------------------------------------------------------
 # Configuração principal da API
@@ -42,16 +43,17 @@ app.include_router(rotas_financeiro.router)
 def raiz():
     return {
         "status": "✅ OK",
-        "mensagem": "Núcleo de IA Praxis — API Local ativa e operante na Vercel"
+        "mensagem": "Núcleo de IA Praxis — API Local ativa e operante"
     }
+
 
 # ------------------------------------------------------------
 # Execução local
 # ------------------------------------------------------------
 def main():
-    import uvicorn
     print("🚀 Iniciando Núcleo de IA Praxis — API Local em http://127.0.0.1:8000 ...")
-    uvicorn.run("backend.app:app", host="127.0.0.1", port=8000, reload=False)
+    uvicorn.run(app, host="127.0.0.1", port=8000, reload=False)
+
 
 if __name__ == "__main__":
     main()
