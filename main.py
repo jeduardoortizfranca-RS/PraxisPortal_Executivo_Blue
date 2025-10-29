@@ -1,29 +1,30 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# ----------------------------
-# IMPORTAÇÕES DO BACKEND
-# ----------------------------
+# importa banco/models/rotas
 from backend.database import Base, engine
 from backend.routes import rotas_base, rotas_financeiro
 
-# ----------------------------
+# ------------------------------------------------------------
 # APP
-# ----------------------------
+# ------------------------------------------------------------
 app = FastAPI(
     title="PraxisPortal API",
     version="1.0.0",
     description="Backend FastAPI hospedado na Vercel",
 )
 
-# ----------------------------
+# ------------------------------------------------------------
 # DB
-# ----------------------------
-Base.metadata.create_all(bind=engine)
+# ------------------------------------------------------------
+try:
+    Base.metadata.create_all(bind=engine)
+except:
+    pass   # Em serverless pode falhar — ignoramos
 
-# ----------------------------
+# ------------------------------------------------------------
 # CORS
-# ----------------------------
+# ------------------------------------------------------------
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -32,15 +33,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ----------------------------
-# ROTAS
-# ----------------------------
+# ------------------------------------------------------------
+# Rotas
+# ------------------------------------------------------------
 app.include_router(rotas_base.router)
 app.include_router(rotas_financeiro.router)
 
-# ----------------------------
-# ROTA RAIZ
-# ----------------------------
+# ------------------------------------------------------------
+# Rota raiz
+# ------------------------------------------------------------
 @app.get("/")
 async def root():
-    return {"status": "✅ OK", "msg": "PraxisPortal API funcionando"}
+    return {
+        "status": "✅ OK",
+        "msg": "PraxisPortal API funcionando",
+        "db": "SQLite local"
+    }
