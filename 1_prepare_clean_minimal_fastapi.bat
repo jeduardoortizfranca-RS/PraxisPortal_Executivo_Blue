@@ -71,13 +71,5 @@ echo =======================
 echo [5/5] DEPLOY — EXECUTANDO...
 echo =======================
 
-vercel --cwd "%PROJ%" --prod --force
-
-echo.
-echo =======================
-echo ✅ DEPLOY CONCLUIDO
-echo =======================
-echo.
-echo (PRESSIONE UMA TECLA PARA SAIR)
-pause >nul
+cmd /k "vercel --cwd "%PROJ%" --prod --force & echo. & echo FINALIZADO & pause"
 exit /b
