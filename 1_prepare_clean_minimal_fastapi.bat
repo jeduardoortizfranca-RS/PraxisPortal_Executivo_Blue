@@ -5,10 +5,10 @@ echo =====================================
 echo  FASTAPI DEPLOY — EXECUTANDO
 echo =====================================
 
-REM ✅ ALTERE SOMENTE A LINHA ABAIXO SE NECESSÁRIO
+REM ✅ ALTERE SE NECESSARIO
 SET "PROJ=C:\PraxisDemo\PraxisDemo_Local_Financeiro\PraxisDemo\PraxisPortal_Executivo_Blue"
 
-echo    %PROJ%
+echo Target: %PROJ%
 
 IF NOT EXIST "%PROJ%" (
     echo ❌ ERRO: Diretorio nao encontrado!
@@ -18,7 +18,8 @@ IF NOT EXIST "%PROJ%" (
 
 echo ✓ Diretorio confirmado
 
-REM ✅ requirements.txt
+
+echo.
 echo [1/5] Criando requirements.txt...
 (
     echo fastapi
@@ -27,7 +28,6 @@ echo [1/5] Criando requirements.txt...
 echo ✓ OK
 
 
-REM ✅ main.py
 echo.
 echo [2/5] Criando main.py...
 (
@@ -40,7 +40,6 @@ echo [2/5] Criando main.py...
 echo ✓ OK
 
 
-REM ✅ vercel.json
 echo.
 echo [3/5] Criando vercel.json...
 (
@@ -57,7 +56,6 @@ echo [3/5] Criando vercel.json...
 echo ✓ OK
 
 
-REM ✅ git add + commit + push
 echo.
 echo [4/5] Git push...
 pushd "%PROJ%"
@@ -68,16 +66,18 @@ popd
 echo ✓ OK
 
 
-REM ✅ DEPLOY VERCEL
 echo.
-echo [5/5] Vercel deploy...
+echo =======================
+echo [5/5] DEPLOY — EXECUTANDO...
+echo =======================
 
 vercel --cwd "%PROJ%" --prod --force
-echo ✓ Deploy OK
 
 echo.
-echo =====================================
-echo ✅ FINALIZADO
-echo =====================================
-pause
+echo =======================
+echo ✅ DEPLOY CONCLUIDO
+echo =======================
+echo.
+echo (PRESSIONE UMA TECLA PARA SAIR)
+pause >nul
 exit /b
