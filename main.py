@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 
 app = FastAPI(
     title="PraxisPortal API",
-    version="1.0.0",
+    version="1.0.0"
 )
 
 @app.get("/")
