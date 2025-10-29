@@ -1,7 +1,2 @@
 fastapi
 uvicorn
-python-multipart
-python-dotenv
-sqlalchemy
-python-jose
-passlib[bcrypt]
