@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: praxisportal-executivo-blue
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn backend.app:app --host 0.0.0.0 --port 8000"
+    branch: main
+    repo: https://github.com/jeduardoortizfranca-RS/PraxisPortal_Executivo_Blue
+    autoDeploy: true
+    plan: free

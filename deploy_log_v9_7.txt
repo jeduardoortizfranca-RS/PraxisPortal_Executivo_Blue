@@ -1,0 +1,8 @@
+[Inicio] 27/10/2025  9:29:10,52 
+📁 Diretório: C:\PraxisDemo\PraxisDemo_Local_Financeiro\PraxisDemo\PraxisPortal_Executivo_Blue 
+=============================================== 
+TESTANDO DEPLOY PASSO A PASSO 
+=============================================== 
+git version 2.51.1.windows.1
+Vercel CLI 48.6.0
+48.6.0

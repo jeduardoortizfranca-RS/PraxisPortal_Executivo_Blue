@@ -1,0 +1,36 @@
+# Backend FastAPI Core
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Supabase Integration (Compatível com Pydantic v2)
+supabase==2.3.0
+# realtime  <-- ESTA LINHA DEVE ESTAR ASSIM (sem versão) ou COMENTADA
+# storage3  <-- ESTA LINHA DEVE ESTAR ASSIM (sem versão) ou COMENTADA
+
+# Database & ORM (Fallback local ou queries custom)
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.9
+alembic==1.13.1
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.0
+
+# Stripe Integration
+stripe==10.9.0
+
+# Pydantic (Versão compatível com Supabase)
+pydantic==2.11.7
+pydantic-settings==2.2.1
+
+# Utilities
+httpx==0.24.1
+email-validator==2.1.1
+python-dateutil==2.8.2
+
+# Development
+pytest==7.4.3
+black==23.12.1
+isort==5.13.2

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praxis AI Core - Análise Jurídica Inteligente</title>
+    <meta name="description" content="Praxis AI Core - Plataforma de IA para análise de contratos e documentos jurídicos. Proteja seu negócio com tecnologia de ponta treinada em Direito Brasileiro.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="">
+                    <img src="assets/logo/praxis-ai-core-logo.svg" alt="Praxis AI Core" class="logo-img">
+                    <span class="logo-text">Praxis AI Core</span>
+                </div>
+                
+                <nav class="nav">
+                    <a href="#features" class="nav-link">Funcionalidades</a>
+                    <a href="#pricing" class="nav-link">Preços</a>
+                    <a href="#about" class="nav-link">Sobre</a>
+                    <a href="#contact" class="nav-link">Contato</a>
+                </nav>
+                
+                <div class="header-actions">
+                    <button id="btn-login" class="btn btn-outline">Entrar</button>
+                    <button id="btn-signup" class="btn btn-primary">Começar Grátis</button>
+                </div>
+                
+                <button class="mobile-menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Análise Jurídica Inteligente.<br>
+                        <span class="highlight">Segurança Contratual</span><br>
+                        Para o seu Negócio
+                    </h1>
+                    <p class="hero-subtitle">
+                        Evite prejuízos, multas e processos. Analise contratos, NDAs e documentos 
+                        <strong>em minutos</strong> com nossa IA treinada em Direito Brasileiro.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">5.000+</span>
+                            <span class="stat-label">Documentos Analisados</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">97%</span>
+                            <span class="stat-label">Precisão Jurídica</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3 min</span>
+                            <span class="stat-label">Tempo Médio</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-cta">
+                        <button id="btn-start-free" class="btn btn-primary btn-large">
+                            <span>Iniciar Análise Grátis</span>
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="Color" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button id="btn-demo" class="btn btn-outline btn-large">
+                            Ver Demonstração
+                        </button>
+                    </div>
+                    
+                    <div class="hero-trust">
+                        <img src="assets/icons/secure-badge.svg" alt="Seguro" class="trust-badge">
+                        <span>100% Confidencial e Seguro</span>
+                        <img src="assets/icons/brazil-flag.svg" alt="Direito Brasileiro" class="trust-badge">
+                        <span>Treinado em Direito Brasileiro</span>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="demo-mockup">
+                        <img src="assets/images/praxis-analyzer-demo.png" alt="Praxis Contract Analyzer" class="mockup-image">
+                        <div class="mockup-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Praxis Contract Analyzer</h2>
+                <p class="section-subtitle">
+                    Nossa plataforma de IA para análise jurídica automatizada, desenvolvida pela Praxis AI Core
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="assets/icons/clause-detection.svg" alt="Detecção de Cláusulas">
+                    </div>
+                    <h3>Detecção de Cláusulas Problemáticas</h3>
+                    <p>Identifica automaticamente cláusulas abusivas, leoninas, penalidades desproporcionais e termos que violam o Código de Defesa do Consumidor e legislação trabalhista.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="assets/icons/risk-analysis.svg" alt="Análise de Risco">
+                    </div>
+                    <h3>Avaliação de Risco Completa</h3>
+                    <p>Classifica o nível de risco de cada cláusula e fornece recomendações práticas para negociação, recusa ou assinatura segura do documento.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="assets/icons/document-upload.svg" alt="Upload Fácil">
+                    </div>
+                    <h3>Upload Simples e Rápido</h3>
+                    <p>Carregue contratos em PDF, DOCX, Word ou texto. Nossa IA processa documentos de qualquer tamanho em poucos minutos, mantendo total confidencialidade.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="assets/icons/legal-compliance.svg" alt="Compliance">
+                    </div>
+                    <h3>Compliance com Direito Brasileiro</h3>
+                    <p>Treinada com jurisprudência brasileira, Código Civil, leis trabalhistas e Código de Defesa do Consumidor para máxima precisão e conformidade legal.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="assets/icons/report-generation.svg" alt="Relatórios">
+                    </div>
+                    <h3>Relatórios Profissionais</h3>
+                    <p>Receba relatórios detalhados com explicações claras, sugestões de negociação, resumo executivo e exportação em PDF para compartilhar com sua equipe ou advogado.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="assets/icons/ai-powered.svg" alt="IA Avançada">
+                    </div>
+                    <h3>Inteligência Artificial Especializada</h3>
+                    <p>Desenvolvida pela Praxis AI Core com modelos de linguagem treinados especificamente para análise contratual e compreensão de linguagem jurídica brasileira.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credibility Section -->
+    <section class="credibility">
+        <div class="container">
+            <div class="credibility-content">
+                <div class="credibility-text">
+                    <h2>A Tecnologia da Praxis AI Core</h2>
+                    <p class="credibility-subtitle">
+                        Desenvolvida em parceria com especialistas em direito contratual e tecnologia de IA, nossa plataforma oferece a mesma qualidade dos grandes escritórios de advocacia, 
+                        agora acessível para empreendedores, MEIs e pequenas empresas.
+                    </p>
+                    
+                    <div class="credibility-partners">
+                        <div class="partner-logo">
+                            <img src="assets/partners/legal-partner.svg" alt="Parceiro Jurídico">
+                            <span>Parceria Jurídica</span>
+                        </div>
+                        <div class="partner-logo">
+                            <img src="assets/partners/tech-partner.svg" alt="Tecnologia Avançada">
+                            <span>Tecnologia de Ponta</span>
+                        </div>
+                        <div class="partner-logo">
+                            <img src="assets/partners/security-partner.svg" alt="Segurança Certificada">
+                            <span>Segurança Certificada</span>
+                        </div>
+                    </div>
+                    
+                    <div class="credibility-stats">
+                        <div class="stat-item">
+                            <h3>300+</h3>
+                            <p>Empresas Ativas</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>25.000+</h3>
+                            <p>Análises Realizadas</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>98.5%</h3>
+                            <p>Taxa de Satisfação</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="credibility-image">
+                    <img src="assets/images/praxis-ai-core-platform.jpg" alt="Plataforma Praxis AI Core">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Planos Simples e Transparentes</h2>
+                <p class="section-subtitle">
+                    Escolha o plano que melhor se adequa ao tamanho do seu negócio. Sem contratos longos, cancele quando quiser. 
+                    Todos os planos incluem garantia de 30 dias.
+                </p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3>Essencial</h3>
+                        <div class="price">
+                            <span class="currency">R$</span>
+                            <span class="amount">49</span>
+                            <span class="period">/mês</span>
+                        </div>
+                        <p class="description">Para freelancers e MEIs</p>
+                    </div>
+                    
+                    <ul class="features-list">
+                        <li>✅ 15 análises/mês</li>
+                        <li>✅ Relatórios básicos</li>
+                        <li>✅ Suporte por email (24h)</li>
+                        <li>✅ Upload de até 15MB</li>
+                        <li>✅ Histórico de 3 meses</li>
+                    </ul>
+                    
+                    <button class="btn btn-primary btn-full" data-plan="essential">
+                        Escolher Essencial
+                    </button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Mais Popular</div>
+                    <div class="card-header">
+                        <h3>Profissional</h3>
+                        <div class="price">
+                            <span class="currency">R$</span>
+                            <span class="amount">99</span>
+                            <span class="period">/mês</span>
+                        </div>
+                        <p class="description">Para pequenas empresas</p>
+                    </div>
+                    
+                    <ul class="features-list">
+                        <li>✅ 50 análises/mês</li>
+                        <li>✅ Relatórios detalhados</li>
+                        <li>✅ Suporte prioritário (12h)</li>
+                        <li>✅ Upload de até 50MB</li>
+                        <li>✅ Histórico de 12 meses</li>
+                        <li>✅ Exportação PDF/Word</li>
+                        <li>✅ Análise prioritária</li>
+                    </ul>
+                    
+                    <button class="btn btn-primary btn-full" data-plan="professional">
+                        Escolher Profissional
+                    </button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">
+                            <span class="currency">R$</span>
+                            <span class="amount">249</span>
+                            <span class="period">/mês</span>
+                        </div>
+                        <p class="description">Para empresas em crescimento</p>
+                    </div>
+                    
+                    <ul class="features-list">
+                        <li>✅ Análises ilimitadas</li>
+                        <li>✅ Relatórios premium</li>
+                        <li>✅ Suporte 24/7 dedicado</li>
+                        <li>✅ Upload ilimitado</li>
+                        <li>✅ Histórico ilimitado</li>
+                        <li>✅ API personalizada</li>
+                        <li>✅ Treinamento da equipe</li>
+                        <li>✅ Consultoria jurídica</li>
+                        <li>✅ Relatórios customizados</li>
+                    </ul>
+                    
+                    <button class="btn btn-primary btn-full" data-plan="enterprise">
+                        Escolher Enterprise
+                    </button>
+                </div>
+            </div>
+            
+            <div class="pricing-footer">
+                <p><strong>Garantia de 30 dias</strong> - Se não ficar satisfeito, devolvemos seu dinheiro integralmente.</p>
+                <div class="payment-methods">
+                    <img src="assets/icons/visa.svg" alt="Visa">
+                    <img src="assets/icons/mastercard.svg" alt="Mastercard">
+                    <img src="assets/icons/PIX.svg" alt="PIX">
+                    <img src="assets/icons/credit-card.svg" alt="Cartão de Crédito">
+                    <img src="assets/icons/bolbr.svg" alt="Boleto Bancário">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>O que nossos clientes dizem</h2                <p class="section-subtitle">
+                    Centenas de empreendedores e empresas já utilizam a Praxis AI Core para proteger seus negócios
+                </p>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Identificamos uma cláusula trabalhista problemática que poderia custar R$ 20.000 em multas. A análise da Praxis AI Core nos salvou de um grande prejuízo."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/images/client-1.jpg" alt="Ana Costa" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Ana Costa</h4>
+                            <p>Proprietária - Agência de Marketing</p>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Como MEI, não tenho condições de contratar um advogado para cada contrato. A Praxis AI Core me dá a segurança necessária para assinar documentos com confiança."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/images/client-2.jpg" alt="Carlos Mendes" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Carlos Mendes</h4>
+                            <p>Consultor Freelancer</p>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"A precisão da análise é impressionante. Identificou detalhes que nosso jurídico interno não tinha percebido. Excelente custo-benefício para nossa empresa."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/images/client-3.jpg" alt="Fernanda Lima" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Fernanda Lima</h4>
+                            <p>Diretora Jurídica - Startup Tech</p>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-final">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Proteja seu Negócio Hoje</h2>
+                <p>Não deixe cláusulas abusivas comprometerem o futuro da sua empresa. Comece a usar a tecnologia da Praxis AI Core agora mesmo.</p>
+                
+                <div class="cta-buttons">
+                    <button id="btn-cta-primary" class="btn btn-primary btn-large">
+                        Iniciar Análise Grátis
+                    </button>
+                    <button id="btn-cta-secondary" class="btn btn-outline btn-large">
+                        Agendar Demonstração
+                    </button>
+                </div>
+                
+                <div class="cta-trust">
+                    <img src="assets/icons/secure-lock.svg" alt="Seguro">
+                    <span>Dados criptografados e confidenciais</span>
+                    <img src="assets/icons/brazil-justice.svg" alt="Direito Brasileiro">
+                    <span>Conformidade com legislação brasileira</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logo/praxis-ai-core-logo-white.svg" alt="Praxis AI Core" class="footer-logo">
+                    <p class="footer-description">
+                        Praxis AI Core - Tecnologia de IA especializada em análise jurídica e contratual, 
+                        desenvolvida para proteger empreendedores e empresas brasileiras.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Produto</h4>
+                    <ul>
+                        <li><a href="#features">Funcionalidades</a></li>
+                        <li><a href="#pricing">Preços</a></li>
+                        <li><a href="/portal">Área do Cliente</a></li>
+                        <li><a href="/demo">Demonstração</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/partners">Parceiros</a></li>
+                        <li><a href="/careers">Carreiras</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="/help">Central de Ajuda</a></li>
+                        <li><a href="/privacy">Política de Privacidade</a></li>
+                        <li><a href="/terms">Termos de Uso</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Receba dicas jurídicas e atualizações sobre nossa plataforma.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Seu email" class="newsletter-input">
+                        <button class="btn btn-primary newsletter-btn">Inscrever</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 Praxis AI Core. Todos os direitos reservados.</p>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="#" class="social-link"><img src="assets/icons/linkedin.svg" alt="LinkedIn"></a>
+                    <a href="#" class="social-link"><img src="assets/icons/twitter.svg" alt="Twitter"></a>
+                    <a href="#" class="social-link"><img src="assets/icons/youtube.svg" alt="YouTube"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <button id="chatbot-toggle" class="chatbot-button">
+            <img src="assets/icons/chatbot-icon.svg" alt="Chat">
+            <span>Ajuda</span>
+        </button>
+        <div id="chatbot-panel" class="chatbot-panel">
+            <div class="chatbot-header">
+                <h4>Assistente Praxis AI</h4>
+                <button id="chatbot-close">&times;</button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    Olá! Sou o assistente da Praxis AI Core. Como posso ajudar você hoje?
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Digite sua mensagem...">
+                <button id="chatbot-send">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/stripe-checkout.js"></script>
+    <script src="js/supabase-auth.js"></script>
+    <script src="js/lead-form.js"></script>
+    <script src="js/chatbot-widget.js"></script>
+</body>
+</html>

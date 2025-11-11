@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>PraxisPortal - Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 40px;
+      margin: 0;
+      background: #f5f7fa;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+    h2 {
+      margin-bottom: 12px;
+      color: #111827;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 12px;
+      color: #374151;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    button {
+      padding: 10px 16px;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    .primary {
+      background: #2563eb;
+      color: #fff;
+      width: 100%;
+      margin-top: 16px;
+    }
+    .secondary {
+      background: #e5e7eb;
+      color: #111;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .msg {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #2563eb;
+      word-wrap: break-word;
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>PraxisPortal — MVP</h1>
+    <h2>Entrar</h2>
+    <form id="loginForm">
+      <label for="email">E-mail</label>
+      <input id="email" type="email" placeholder="teste@teste.com" autocomplete="email" value="teste@teste.com" />
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" placeholder="123456" autocomplete="current-password" value="123456" />
+      <button id="btn-login" class="primary">Entrar</button>
+    </form>
+    <button id="btnShowToken" class="secondary">Ver token salvo</button>
+    <button id="btnClearToken" class="secondary">Limpar token</button>
+    <div id="msg" class="msg"></div>
+  </div>
+
+  <!-- Definir dinamicamente a API usada pelo FE -->
+  <!-- removida a linha window.API_URL = "/" pois interferia na configuração -->
+  <!-- AUTH.JS - servido diretamente pelo frontend -->
+  <script src="/frontend/js/auth_real.js?v=1004"></script>
+</body>
+</html>
